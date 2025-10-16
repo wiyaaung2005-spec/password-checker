@@ -17,10 +17,10 @@
     </video>
 
     <div class="container">
-        <h1>🔐 Cyber-Fortifier Core</h1>
+        <h1>🔐 Password Tester</h1>
 
         <form method="POST" action="/">
-            <label for="password">Enter Neural Key (Password):</label>
+            <label for="password">Enter Your Key (Password):</label>
             <input type="password" id="password" name="password" required placeholder="Initiate Protocol: Enter Key">
             <button type="submit">Analyze Key Strength</button>
         </form>
@@ -28,20 +28,18 @@
         {% if strength %}
         <div class="results-box">
             <h2>Analysis Report:</h2>
-            <p>Neural Key Status:
+            <p>Your Key Status:
                 <span class="status-{{ color }}">{{ strength }}</span>
             </p>
 
-            <h3>Fortification Feedback:</h3>
+            <h3>Your Key Status:</h3>
             <ul>
                 {% for item in feedback %}
                 <li>{{ item }}</li>
                 {% endfor %}
             </ul>
-            </ul>
-
             {% if suggestions %}
-            <h3 class="suggestions-header">Fortification Protocols:</h3>
+            <h3 class="suggestions-header">Suggestion for You:</h3>
             <ul class="suggestions-list">
                 {% for item in suggestions %}
                 <li class="suggestion-item">{{ item }}</li>
@@ -51,9 +49,6 @@
 
         </div>
         {% endif %}
-    </div>
-    {% endif %}
-
     </div>
 </body>
 
