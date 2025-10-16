@@ -1,37 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Strength Checker</title>
+    <title>Cyber Password Tester</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
+    <video autoplay muted loop id="background-video">
+        <source src="{{ url_for('static', filename='cyber_video.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
     <div class="container">
-        <h1>🔐 Password Strength Checker</h1>
+        <h1>🔐 Cyber-Fortifier Core</h1>
 
         <form method="POST" action="/">
-            <label for="password">Enter a Password:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Check Strength</button>
+            <label for="password">Enter Neural Key (Password):</label>
+            <input type="password" id="password" name="password" required placeholder="Initiate Protocol: Enter Key">
+            <button type="submit">Analyze Key Strength</button>
         </form>
 
         {% if strength %}
         <div class="results-box">
-            <h2>Result:</h2>
-            <p>Your password is: 
-                <span class="{{ color }}">{{ strength }}</span>
+            <h2>Analysis Report:</h2>
+            <p>Neural Key Status:
+                <span class="status-{{ color }}">{{ strength }}</span>
             </p>
-            
-            <h3>Feedback:</h3>
+
+            <h3>Fortification Feedback:</h3>
             <ul>
                 {% for item in feedback %}
-                    <li>{{ item }}</li>
+                <li>{{ item }}</li>
                 {% endfor %}
             </ul>
+            </ul>
+
+            {% if suggestions %}
+            <h3 class="suggestions-header">Fortification Protocols:</h3>
+            <ul class="suggestions-list">
+                {% for item in suggestions %}
+                <li class="suggestion-item">{{ item }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
         </div>
         {% endif %}
+    </div>
+    {% endif %}
 
     </div>
 </body>
+
 </html>

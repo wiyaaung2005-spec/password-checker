@@ -1,81 +1,230 @@
+/* ---------------------------------------------------- */
+/* 1. Global & Cyber Background */
+/* ---------------------------------------------------- */
 body {
-    font-family: sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+    font-family: 'Share Tech Mono', monospace;
+    /* Futuristic monospaced font */
+    background-color: #0d0d0d;
+    /* Deep dark background */
+    color: #00ffc4;
+    /* Neon green primary text color */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    overflow: hidden;
+    /* Prevent scrolling if video/animation is bigger */
+
+    /* Fallback and Base for Animation */
+    background-image: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #0d0d0d 100%);
 }
 
+/* Video Background (Set to be hidden, but we keep the element) */
+#background-video {
+    display: none;
+}
+
+/* Optional: Binary Code Animation Layer (Pure CSS Innovation) */
+#background-video {
+    position: fixed;
+    top: 50%;
+    /* New: Move the top edge to 50% down the viewport */
+    left: 50%;
+    /* New: Move the left edge to 50% across the viewport */
+
+    /* The next line is the magic trick: it shifts the video back by half its own width/height */
+    transform: translate(-50%, -50%);
+
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    background-size: cover;
+    filter: brightness(0.7);
+    display: block;
+}
+
+
+/* ---------------------------------------------------- */
+/* 2. Container and Typography */
+/* ---------------------------------------------------- */
 .container {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: rgba(10, 10, 10, 0.85);
+    /* Slightly transparent dark panel */
+    backdrop-filter: blur(5px);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 196, 0.4);
+    /* Neon Green Glow */
+    border: 1px solid #00ffc4;
     width: 100%;
-    max-width: 450px;
+    max-width: 480px;
+    z-index: 10;
 }
 
 h1 {
+    font-family: 'Orbitron', sans-serif;
+    /* Aggressive, futuristic font for H1 */
     text-align: center;
-    color: #1a1a1a;
+    color: #00bfff;
+    /* Neon Magenta Heading */
     margin-bottom: 30px;
+    font-size: 2em;
+    text-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff;
+    border-bottom: 2px solid #00bfff;
+    padding-bottom: 10px;
 }
 
+/* ---------------------------------------------------- */
+/* 3. Form & Input Styling */
+/* ---------------------------------------------------- */
 form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
+label {
+    font-weight: 700;
+    color: #00ffc4;
+}
+
 input[type="password"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 12px;
+    border: 1px solid #00ffc4;
+    /* Neon Border */
+    background-color: #1a1a1a;
+    color: #00ffc4;
+    border-radius: 4px;
     font-size: 16px;
+}
+
+input[type="password"]:focus {
+    box-shadow: 0 0 8px #00ffc4;
+    /* Neon focus glow */
+    outline: none;
 }
 
 button {
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
+    padding: 12px;
+    background-color: #00bfff;
+    /* Neon Magenta Button */
+    color: #1a1a1a;
+    /* Dark text on button */
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.2s;
+    font-size: 17px;
+    font-weight: bold;
+    transition: background-color 0.2s, box-shadow 0.2s;
 }
 
 button:hover {
-    background-color: #0056b3;
+    box-shadow: 0 0 10px;
+    background-color: #96e5ff;
+    /* Lighter magenta on hover */
+    background-color: #96e5ff;
+    box-shadow: 0 0 10px;
 }
 
+/* ---------------------------------------------------- */
+/* 4. Results Display (Cyber-Colored Feedback) */
+/* ---------------------------------------------------- */
 .results-box {
     margin-top: 30px;
     padding: 20px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: rgba(10, 10, 10, 0.9);
+    border: 1px dashed #444;
+    /* Glitch effect border */
 }
 
 .results-box h2 {
-    margin-top: 0;
+    font-family: 'Orbitron', sans-serif;
+    color: #00ffc4;
     font-size: 1.4em;
+    text-shadow: none;
 }
 
-/* Color classes determined by the Python 'color' variable */
-.red { color: #dc3545; font-weight: bold; }
-.orange { color: #ffc107; font-weight: bold; }
-.green { color: #28a745; font-weight: bold; }
-
-.red, .orange, .green {
-    /* Optional: Style the result span itself for visual flair */
-    padding: 2px 5px;
-    border-radius: 3px;
-    background-color: rgba(255, 255, 255, 0.1);
+/* WEAK: Danger Red */
+.status-red {
+    color: #ff4757;
+    /* Danger Red Neon */
+    font-weight: 700;
+    text-shadow: 0 0 3px #ff4757;
 }
 
-.red { background-color: rgba(220, 53, 69, 0.1); }
-.orange { background-color: rgba(255, 193, 7, 0.1); }
-.green { background-color: rgba(40, 167, 69, 0.1); }
+/* MEDIUM: Warning Yellow */
+.status-orange {
+    color: #ffa502;
+    /* Warning Orange Neon */
+    font-weight: 700;
+    text-shadow: 0 0 3px #ffa502;
+}
+
+/* STRONG: Success Green */
+.status-green {
+    color: #00ffc4;
+    /* Success Green Neon */
+    font-weight: 700;
+    text-shadow: 0 0 5px #00ffc4;
+}
+
+/* Feedback List */
+.results-box ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+.results-box li {
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #ced9da;
+    /* Muted gray for body text */
+}
+
+.results-box li::before {
+    content: '> ';
+    /* Futuristic list marker */
+    color: #00bfff;
+    font-weight: bold;
+}
+
+/* ---------------------------------------------------- */
+/* 5. Suggestions / Fortification Protocols */
+/* ---------------------------------------------------- */
+.suggestions-header {
+    font-family: 'Orbitron', sans-serif;
+    color: #ffa502;
+    /* Warning Orange Neon */
+    font-size: 1.2em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 2px #ffa502;
+    border-top: 1px solid #444;
+    padding-top: 15px;
+}
+
+.suggestions-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.suggestion-item {
+    font-size: 1em;
+    color: #bdc3c7;
+    /* Light gray text */
+    margin-bottom: 5px;
+}
+
+.suggestion-item::before {
+    content: '>> ';
+    /* New futuristic marker for suggestions */
+    color: #ffa502;
+    /* Orange color */
+    font-weight: bold;
+}
