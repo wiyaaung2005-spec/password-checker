@@ -1,0 +1,81 @@
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+}
+
+h1 {
+    text-align: center;
+    color: #1a1a1a;
+    margin-bottom: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.results-box {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.results-box h2 {
+    margin-top: 0;
+    font-size: 1.4em;
+}
+
+/* Color classes determined by the Python 'color' variable */
+.red { color: #dc3545; font-weight: bold; }
+.orange { color: #ffc107; font-weight: bold; }
+.green { color: #28a745; font-weight: bold; }
+
+.red, .orange, .green {
+    /* Optional: Style the result span itself for visual flair */
+    padding: 2px 5px;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.red { background-color: rgba(220, 53, 69, 0.1); }
+.orange { background-color: rgba(255, 193, 7, 0.1); }
+.green { background-color: rgba(40, 167, 69, 0.1); }
