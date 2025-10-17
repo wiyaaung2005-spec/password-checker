@@ -3,8 +3,6 @@ from flask import Flask, render_template, request
 # Initialize the Flask application
 app = Flask(__name__)
 
-# --- Password Scoring Logic ---
-# This function calculates the strength based on various criteria
 # --- Password Scoring Logic (Updated) ---
 def check_password_strength(password):
     score = 0
@@ -61,7 +59,6 @@ def check_password_strength(password):
     else:
         # Weak: return the calculated suggestions
         return "Weak", "red", feedback, suggestions
-
 # --- Flask Routes ---
 
 @app.route('/', methods=['GET', 'POST'])
@@ -81,7 +78,6 @@ def index():
     
     # Render the initial page with empty variables
     return render_template('index.html', strength=None, color=None, feedback=None, suggestions=None)
-
 
 if __name__ == '__main__':
     # Flask runs locally on port 5000 (standard for development)
