@@ -26,27 +26,53 @@ body {
 }
 
 /* Optional: Binary Code Animation Layer (Pure CSS Innovation) */
-#background-video {
-    /* Ensures the video is 100% of the viewport */
-    width: 100vw;
-    height: 100vh;
+/*
+ * CYBERPUNK CSS ANIMATED BACKGROUND
+ * This section replaces the problematic video background with
+ * a fully-functional, animated, low-bandwidth CSS effect.
+ */
 
-    /* Perfect centering for any screen ratio */
-    object-fit: cover;
+/* Keyframes for the Animation: Moves the background over time */
+@keyframes matrix-scroll {
+    from {
+        background-position: 0 0;
+    }
 
-    /* Position fixed to the top-left corner */
-    position: fixed;
-    top: 0;
-    left: 0;
+    to {
+        /* Move the pattern down and to the right */
+        background-position: 100px 100px;
+    }
+}
 
-    /* Ensure it is behind EVERYTHING, even the black background */
-    z-index: -1000;
+/* Target the Body to apply the background */
+body {
+    /* Set a fallback black background */
+    background-color: #000000;
 
-    /* Dim the video for text contrast */
-    filter: brightness(0.7);
+    /* 1. Add the moving grid/dots pattern */
+    background-image:
+        /* Subtle blue gradient overlay for atmosphere */
+        linear-gradient(rgba(0, 191, 255, 0.1), rgba(0, 0, 0, 0.9)),
+        /* Tiny white/gray dots grid that looks like matrix rain/digital data */
+        radial-gradient(circle, #222 1px, transparent 1px),
+        radial-gradient(circle, #222 1px, transparent 1px);
 
-    /* The next line is necessary if the video file is corrupted or not H.264 */
-    background: #000000;
+    /* 2. Configure the dot patterns */
+    background-size: 50px 50px, 50px 50px, 10px 10px;
+    background-position: 0 0, 25px 25px, 0 0;
+    background-attachment: fixed;
+    /* Ensures background stays fixed */
+
+    /* 3. Apply the Animation! */
+    animation: matrix-scroll 20s linear infinite;
+
+    /* Ensures the container content remains centered */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
 }
 
 
