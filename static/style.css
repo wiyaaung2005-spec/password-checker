@@ -27,23 +27,26 @@ body {
 
 /* Optional: Binary Code Animation Layer (Pure CSS Innovation) */
 #background-video {
+    /* Ensures the video is 100% of the viewport */
+    width: 100vw;
+    height: 100vh;
+
+    /* Perfect centering for any screen ratio */
+    object-fit: cover;
+
+    /* Position fixed to the top-left corner */
     position: fixed;
-    top: 50%;
-    /* New: Move the top edge to 50% down the viewport */
-    left: 50%;
-    /* New: Move the left edge to 50% across the viewport */
+    top: 0;
+    left: 0;
 
-    /* The next line is the magic trick: it shifts the video back by half its own width/height */
-    transform: translate(-50%, -50%);
+    /* Ensure it is behind EVERYTHING, even the black background */
+    z-index: -1000;
 
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    background-size: cover;
+    /* Dim the video for text contrast */
     filter: brightness(0.7);
-    display: block;
+
+    /* The next line is necessary if the video file is corrupted or not H.264 */
+    background: #000000;
 }
 
 
@@ -52,16 +55,19 @@ body {
 /* ---------------------------------------------------- */
 .container {
     background-color: rgba(10, 10, 10, 0.85);
-    /* Slightly transparent dark panel */
+    /* <-- Keep this for transparency */
     backdrop-filter: blur(5px);
     padding: 40px;
     border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 255, 196, 0.4);
-    /* Neon Green Glow */
-    border: 1px solid #00ffc4;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    border: 1px solid #00bfff;
     width: 100%;
     max-width: 480px;
-    z-index: 10;
+
+    z-index: 100;
+    /* NEW: Ensure content is above background */
+    position: relative;
+    /* NEW: z-index only works if position is set */
 }
 
 h1 {
